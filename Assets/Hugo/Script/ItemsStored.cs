@@ -15,14 +15,16 @@ public class ItemsStored : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Isactivated == true && Input.touchCount >= 1)
+        if (Isactivated == true && Input.GetMouseButtonDown(0) ) //Input.touchCount >= 1
         {
-            Touch touch = Input.GetTouch(0);
-            Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
-            //Vector2 instancePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Instantiate(itemstored, instancePos ,Quaternion.identity );
-            Instantiate(itemstored, touchPos ,Quaternion.identity );
+            //Touch touch = Input.GetTouch(0);
+            //Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector2 instancePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(itemstored, instancePos ,Quaternion.identity );
+            //Instantiate(itemstored, touchPos ,Quaternion.identity );
+            itemstored = null;
             Isactivated = false;
+            
         }
     }
 
