@@ -16,6 +16,7 @@ public class Obstacles : MonoBehaviour
     public float EnlargeForce;
     public float AccelForce;
     public float AccelTime;
+    public float speedRotate;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +35,14 @@ public class Obstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldownGun -= Time.deltaTime;
+        if (nameId == "Slap")
+        {
+            transform.Rotate(Vector3.forward * speedRotate * Time.deltaTime);
+        }
         
         if (nameId == "Gun")
         {
+            cooldownGun -= Time.deltaTime;
             if (cooldownGun < 0)
             {
                 Instantiate(bullet,new Vector2(transform.position.x + 1,transform.position.y), Quaternion.identity);
