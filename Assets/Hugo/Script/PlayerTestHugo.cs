@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerTestHugo : MonoBehaviour
 {
-    
+    public float SlowDownForce;
+    public bool Boosted = false;
+    public bool Slowing = false;
     public float speed;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public float maxVelocity;
     public float sqrMaxVelocity;
     public static PlayerTestHugo instance;
@@ -35,16 +37,50 @@ public class PlayerTestHugo : MonoBehaviour
     {
         if (rb.velocity.sqrMagnitude > sqrMaxVelocity)
         {
-            rb.velocity = rb.velocity.normalized * maxVelocity;
+            if (Boosted)
+            {
+
+            }
+            else 
+            {
+                Slowing = true;
+
+
+            }
+            
+        }
+        else
+        {
+            Slowing = false;
         }
         
     }
         // Update is called once per frame
     void Update()
     {
+        if (Slowing)
+        {
+            rb.velocity *= SlowDownForce / 100;
+        }
         
     }
 
+    public void Boosting(float Time) 
+    {
+        StartCoroutine(Booster(Time));
+    }
+    public void Boost(float AccelForce) 
+    {
+        rb.AddForce(new Vector2(0, -AccelForce));
+
+    }
+    IEnumerator Booster(float Time) 
+    {
+        Boosted = true;
+        yield return new WaitForSeconds(Time);
+        Boosted = false;
+    
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         
@@ -54,31 +90,11 @@ public class PlayerTestHugo : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "LimitWorld")
-        {
-            
-            LevelManager.instance.SpawnLevel();
-            StartCoroutine(destroyLimit(collision.gameObject));
-        }
-    }
+   
 
-    private IEnumerator destroyLimit(GameObject limit) 
-    {
+    
 
-        yield return new WaitForSeconds(0.1f);
-        limit.SetActive(false);
-      
-    }
-
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "World")
-        {
-            collision.gameObject.GetComponent<World>().Destroyer();
-        }
-    }
+    
      
     public void Shrinking(float shrinkT, float shrinkF) 
     {
@@ -91,6 +107,19 @@ public class PlayerTestHugo : MonoBehaviour
         
       gameObject.transform.localScale = new Vector3( shrinkForce,shrinkForce,0);
       yield return new WaitForSeconds(shrinkTime);
+        gameObject.transform.localScale = new Vector3(1 ,1, 0);
+   }
+    public void Enlarging(float EnlargeT, float EnlargeF) 
+    {
+        StartCoroutine(EnlargingPhase(EnlargeT, EnlargeF));
+     
+    }
+    
+   public IEnumerator EnlargingPhase(float EnlargeTime, float EnlargeForce) 
+   {
+        
+      gameObject.transform.localScale = new Vector3(EnlargeForce, EnlargeForce, 0);
+      yield return new WaitForSeconds(EnlargeTime);
         gameObject.transform.localScale = new Vector3(1 ,1, 0);
    }
 }
