@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerTestHugo : MonoBehaviour
 {
+    
     public float speed;
     private Rigidbody2D rb;
     public float maxVelocity;
     public float sqrMaxVelocity;
+    public static PlayerTestHugo instance;
     // Start is called before the first frame update
 
     private void Awake()
     {
+        instance = this;
         rb = gameObject.GetComponent<Rigidbody2D>();
         SetMaxVelocity(maxVelocity);
     }
@@ -45,6 +48,10 @@ public class PlayerTestHugo : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         
+        if (collision.gameObject.tag == "Dammage")
+        {
+            //gameover
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -72,4 +79,18 @@ public class PlayerTestHugo : MonoBehaviour
             collision.gameObject.GetComponent<World>().Destroyer();
         }
     }
+     
+    public void Shrinking(float shrinkT, float shrinkF) 
+    {
+        StartCoroutine(ShrinkingPhase(shrinkT, shrinkF));
+     
+    }
+    
+   public IEnumerator ShrinkingPhase(float shrinkTime, float shrinkForce ) 
+   {
+        
+      gameObject.transform.localScale = new Vector3( shrinkForce,shrinkForce,0);
+      yield return new WaitForSeconds(shrinkTime);
+        gameObject.transform.localScale = new Vector3(1 ,1, 0);
+   }
 }
