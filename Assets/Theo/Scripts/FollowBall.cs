@@ -12,12 +12,11 @@ public class FollowBall : MonoBehaviour
     void Start()
     {
         offset = transform.position - ball.transform.position;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = ball.transform.position + offset;
+        transform.position = new Vector3(transform.position.x, ball.transform.position.y + offset.y, transform.position.z);
     }
 }
