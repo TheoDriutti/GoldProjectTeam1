@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float maxFallSpeed;
+    public float maxFallSpeed = 5f;
 
     [HideInInspector] public bool isBoosting = false;
-    [HideInInspector] public float boostCD = -1f;
+    [HideInInspector] public float boostCD = 0f;
     [HideInInspector] public float boostCoeff;
+
+    [HideInInspector] public bool isSlowing = false;
+    [HideInInspector] public float slowCD = 0f;
+    [HideInInspector] public float slowCoeff;
+
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -24,13 +29,15 @@ public class BallController : MonoBehaviour
         {
             boostCD -= Time.deltaTime;
         }
+        if (isSlowing)
+        {
+            slowCD -= Time.deltaTime;
+        }
         UpdateBoost();
-
-        Debug.Log(rb.velocity.y);
+        UpdateSlow();
 
         if (Mathf.Abs(rb.velocity.y) > maxFallSpeed)
         {
-            Debug.Log("coucou");
             rb.velocity = rb.velocity.normalized * maxFallSpeed;
         }
     }
@@ -40,8 +47,19 @@ public class BallController : MonoBehaviour
         if (boostCD < 0f)
         {
             isBoosting = false;
-            boostCD = 0;
+            boostCD = 0f;
             maxFallSpeed /= boostCoeff;
         }
     }
+
+    void UpdateSlow()
+    {
+        if (slowCD < 0f)
+        {
+            isSlowing = false;
+            slowCD = 0f;
+            maxFallSpeed /= slowCoeff;
+        }
+    }
+
 }

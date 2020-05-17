@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             listeObjets = new List<GameObject>();
-            GetObjets();
+            GetObjets(4);
             DonneItems();
         }
     }
@@ -35,10 +35,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GetObjets()
+    void GetObjets(int nbItems)
     {
-        foreach (Transform child in objets.transform)
+        List<int> alreadyPicked = new List<int>();
+        for (int i = 0; i < nbItems; i++)
         {
+            int numeroItem = Random.Range(0, objets.transform.childCount);
+            while (alreadyPicked.Contains(numeroItem))
+            {
+                numeroItem = Random.Range(0, objets.transform.childCount);
+            }
+            alreadyPicked.Add(numeroItem);
+
+            Transform child = objets.transform.GetChild(numeroItem);
             listeObjets.Add(child.gameObject);
         }
     }

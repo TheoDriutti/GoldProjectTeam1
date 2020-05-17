@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManagerTheo : MonoBehaviour
 {
     public int tailleLevel;
     public GameObject uniteDecor;

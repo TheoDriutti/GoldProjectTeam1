@@ -9,6 +9,7 @@ TagManager:
   - Detector
   - Shield
   - Dammage
+  - Ball
   layers:
   - Default
   - TransparentFX

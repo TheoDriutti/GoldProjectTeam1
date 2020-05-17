@@ -25,7 +25,6 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(IInventoryItem item)
     {
-        Debug.Log(item.Name);
         if (items.Contains(item))
         {
             //items.Remove(item);

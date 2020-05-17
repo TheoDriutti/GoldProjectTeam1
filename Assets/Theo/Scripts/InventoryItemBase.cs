@@ -25,7 +25,7 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
     public virtual void OnDrop()
     {
         Vector3 DropPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var newObj = Instantiate(gameObject, new Vector3(DropPos.x, DropPos.y, 0), Quaternion.identity);
+        var newObj = Instantiate(gameObject, new Vector3(DropPos.x, DropPos.y, 0), transform.rotation);
         newObj.transform.parent = transform.parent;
     }
 
