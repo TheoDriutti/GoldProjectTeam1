@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public Transform direction;
+
+    public Transform target;
+    Vector3 direction;
     public float projSpeed;
 
     void Start()
     {
-        transform.LookAt(direction);
+        direction = target.position;
     }
 
     void Update()
     {
-        
-    }
-
-    public void Proj()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, direction.transform.position, projSpeed * Time.deltaTime);
-        if (transform.position == direction.transform.position)
+        transform.position = Vector3.MoveTowards(transform.position, direction, projSpeed * Time.deltaTime);
+        if (transform.position == direction)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }

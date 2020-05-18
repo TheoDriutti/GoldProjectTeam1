@@ -98,9 +98,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameId: Bullet
   bullet: {fileID: 0}
-  cooldown: 0
+  cooldownGun: 0
   baseCooldown: 0
-  bulletStrength: 1000
+  bulletStrength: 200
+  FireX: 0
+  FireY: 0
+  Firetime: 0
+  EnlargeTime: 0
+  EnlargeForce: 0
+  AccelForce: 0
+  AccelTime: 0
+  speedRotate: 0
 --- !u!50 &6426084328964671528
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +124,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
