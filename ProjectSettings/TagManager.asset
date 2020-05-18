@@ -10,6 +10,8 @@ TagManager:
   - Shield
   - Dammage
   - Ball
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX

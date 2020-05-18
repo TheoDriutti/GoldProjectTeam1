@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerTestHugo : MonoBehaviour
 {
+    private bool Left = false;
+    private bool Right = false;
+
     public float SlowDownForce;
     public bool Boosted = false;
     public bool Slowing = false;
@@ -62,7 +65,10 @@ public class PlayerTestHugo : MonoBehaviour
         {
             rb.velocity *= SlowDownForce / 100;
         }
-        
+        if (Right == true && Left == true)
+        {
+            Debug.Log("GameOver");
+        }
     }
 
     public void Boosting(float Time) 
@@ -86,16 +92,38 @@ public class PlayerTestHugo : MonoBehaviour
         
         if (collision.gameObject.tag == "Dammage")
         {
-            //gameover
+            Debug.Log("GameOver");
+        }
+
+        if (collision.gameObject.tag == "Left")
+        {
+            Left = true;
+        }
+        if (collision.gameObject.tag == "Right")
+        {
+            Right = true;
+        }
+
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Left")
+        {
+            Left = false;
+        }
+        if (collision.gameObject.tag == "Right")
+        {
+            Right = false;
         }
     }
 
-   
 
-    
 
-    
-     
+
+
+
+
     public void Shrinking(float shrinkT, float shrinkF) 
     {
         StartCoroutine(ShrinkingPhase(shrinkT, shrinkF));
