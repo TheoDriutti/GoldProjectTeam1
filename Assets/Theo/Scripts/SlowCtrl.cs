@@ -12,12 +12,14 @@ public class SlowCtrl : InventoryItemBase
         if (col.gameObject.tag == "Ball")
         {
             BallController bc = col.GetComponent<BallController>();
-
-            bc.slowCD = slowDuration;
-            bc.isSlowing = true;
-            bc.maxFallSpeed *= slowMultiplicator;
-            col.GetComponent<Rigidbody2D>().velocity *= slowMultiplicator;
-            bc.slowCoeff = slowMultiplicator;
+            if (!bc.isSlowing)
+            {
+                bc.slowCD = slowDuration;
+                bc.isSlowing = true;
+                bc.maxFallSpeed *= slowMultiplicator;
+                col.GetComponent<Rigidbody2D>().velocity *= slowMultiplicator;
+                bc.slowCoeff = slowMultiplicator;
+            }
         }
     }
 }
