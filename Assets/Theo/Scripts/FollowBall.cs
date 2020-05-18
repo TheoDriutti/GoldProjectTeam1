@@ -17,6 +17,9 @@ public class FollowBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, ball.transform.position.y + offset.y, transform.position.z);
+        if (ball != null)
+        {
+            transform.position = new Vector3(transform.position.x, ball.transform.position.y + offset.y, transform.position.z);
+        }
     }
 }

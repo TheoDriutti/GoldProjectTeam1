@@ -20,15 +20,15 @@ public class Obstacles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (nameId =="Fire")
+        if (nameId == "Fire")
         {
             StartCoroutine(FireMove());
         }
-        
+
 
         if (nameId == "Bullet")
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletStrength,0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletStrength, 0));
         }
     }
 
@@ -39,13 +39,13 @@ public class Obstacles : MonoBehaviour
         {
             transform.Rotate(Vector3.forward * speedRotate * Time.deltaTime);
         }
-        
+
         if (nameId == "Gun")
         {
             cooldownGun -= Time.deltaTime;
             if (cooldownGun < 0)
             {
-                Instantiate(bullet,new Vector2(transform.position.x + 1,transform.position.y), Quaternion.identity);
+                Instantiate(bullet, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 cooldownGun = baseCooldown;
             }
         }
@@ -55,8 +55,19 @@ public class Obstacles : MonoBehaviour
     {
         if (nameId == "Bullet")
         {
-            Destroy(gameObject, 0.01f);
+
+            if (collision.gameObject.tag == "Cover")
+            {
+                Debug.Log("cover");
+                GetComponent<Rigidbody2D>().gravityScale = 1;
+                Destroy(gameObject, 1.5f);
+            }
+            else
+            {
+                Destroy(gameObject, 0.01f);
+            }
         }
+
     }
 
     IEnumerator FireMove()
@@ -74,7 +85,7 @@ public class Obstacles : MonoBehaviour
         {
             PlayerTestHugo.instance.Boost(AccelForce);
             PlayerTestHugo.instance.Boosting(AccelTime);
-            
+
         }
     }
 }
