@@ -11,6 +11,8 @@ TagManager:
   - Dammage
   - Ball
   - Cover
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX
