@@ -16,12 +16,11 @@ public class Obstacles : MonoBehaviour
     public float Firetime;
     public float EnlargeTime;
     public float EnlargeForce;
-    public float CrusherForce;
+    
     public float AccelForce;
     public float AccelTime;
     public float speedRotate;
-    public GameObject Left;
-    public GameObject Right;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -54,11 +53,7 @@ public class Obstacles : MonoBehaviour
                 cooldownGun = baseCooldown;
             }
         }
-        if (nameId == "Crusher" && LockOn == true)
-        {
-            Right.GetComponent<Rigidbody2D>().AddForce(new Vector2(-CrusherForce,0));
-            Left.GetComponent<Rigidbody2D>().AddForce(new Vector2(CrusherForce, 0));
-        }
+        
     }
     
 
@@ -88,14 +83,7 @@ public class Obstacles : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (nameId == "Crusher")
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-                LockOn = true;
-            }
-                
-        }
+        
         if (nameId == "Enlarge")
         {
             PlayerTestHugo.instance.Enlarging(EnlargeTime, EnlargeForce);
