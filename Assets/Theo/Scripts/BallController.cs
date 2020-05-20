@@ -14,6 +14,8 @@ public class BallController : MonoBehaviour
     [HideInInspector] public float slowCD = 0f;
     [HideInInspector] public float slowCoeff;
 
+    bool hittingCrusherLeft = false;
+    bool hittingCrusherRight = false;
     Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -59,6 +61,30 @@ public class BallController : MonoBehaviour
             isSlowing = false;
             slowCD = 0f;
             maxFallSpeed /= slowCoeff;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Left")
+        {
+            hittingCrusherLeft = true;
+        }
+        if (col.gameObject.tag == "Right")
+        {
+            hittingCrusherRight = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Left")
+        {
+            hittingCrusherLeft = false;
+        }
+        if (col.gameObject.tag == "Right")
+        {
+            hittingCrusherRight = false;
         }
     }
 
