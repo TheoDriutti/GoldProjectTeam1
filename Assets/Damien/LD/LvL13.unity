@@ -2094,8 +2094,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objets: {fileID: 0}
   inventory: {fileID: 1239906202}
-  dureeBulletTime: 0
-  coeffBulletTime: 0
+  dureeBulletTime: 2
+  coeffBulletTime: 0.00000001
 --- !u!4 &1005334373
 Transform:
   m_ObjectHideFlags: 0
@@ -2470,7 +2470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbf17dd039ba5b479d8f83fef342ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 1916236647}
 --- !u!81 &1228319228
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3008,6 +3008,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1916236647 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4321853650421372128, guid: ea0b5096cfe9957499efd98f4ce9efaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3577397609438940506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1932807336
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,12 +4051,12 @@ PrefabInstance:
     - target: {fileID: 4766115917437701965, guid: ea0b5096cfe9957499efd98f4ce9efaa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: -0.16
       objectReference: {fileID: 0}
     - target: {fileID: 4766115917437701965, guid: ea0b5096cfe9957499efd98f4ce9efaa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.188
+      value: 3.18
       objectReference: {fileID: 0}
     - target: {fileID: 4766115917437701965, guid: ea0b5096cfe9957499efd98f4ce9efaa,
         type: 3}
