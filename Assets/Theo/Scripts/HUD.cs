@@ -8,7 +8,7 @@ public class HUD : MonoBehaviour
     public Inventory Inventory;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Inventory.ItemAdded += InventoryScript_ItemAdded;
         Inventory.ItemRemoved += InventoryScript_ItemRemoved;
