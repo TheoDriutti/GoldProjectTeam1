@@ -913,7 +913,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objets: {fileID: 1621448870}
+  ball: {fileID: 412171950}
   inventory: {fileID: 1219037496}
+  dureeBulletTime: 5
+  coeffBulletTime: 0.1
 --- !u!4 &1051048639
 Transform:
   m_ObjectHideFlags: 0

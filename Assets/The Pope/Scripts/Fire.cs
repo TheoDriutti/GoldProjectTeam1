@@ -29,8 +29,6 @@ public class Fire : MonoBehaviour
         {
             if (newObject.GetComponent<BoxCollider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
             {
-                Debug.Log(obj.name);
-
                 Destroy(newObject);
                 StopCoroutine(Move());
                 break;

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject objets;
+    public BallController ball;
     public Inventory inventory;
 
     public float dureeBulletTime;
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     float defaultTimeScale;
     float timeLancementBT;
+    float defaultBallSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
         if (BulletTimeFinished())
         {
             gameState = GameState.GAME;
+            //ball.maxFallSpeed = defaultBallSpeed;
             Time.timeScale = defaultTimeScale;
         }
 
@@ -43,9 +46,11 @@ public class GameManager : MonoBehaviour
 
     void LaunchBulletTime()
     {
-        //timeLancementBT = Time.time;
-        //gameState = GameState.BULLETTIME;
-        //Time.timeScale = defaultTimeScale * coeffBulletTime;
+        timeLancementBT = Time.time;
+        gameState = GameState.BULLETTIME;
+        Time.timeScale = defaultTimeScale * coeffBulletTime;
+        //defaultBallSpeed = ball.maxFallSpeed;
+        //ball.maxFallSpeed *= coeffBulletTime;
 
         listeObjets = new List<GameObject>();
         GetObjets();
@@ -72,5 +77,6 @@ public class GameManager : MonoBehaviour
     bool BulletTimeFinished()
     {
         return (Time.time / coeffBulletTime) > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
+        //return Time.time > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
     }
 }
