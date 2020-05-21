@@ -10,7 +10,10 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.SetActive(false);
+        if (collision.gameObject.tag == "Ball")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
     private void Start()
@@ -21,7 +24,20 @@ public class Fire : MonoBehaviour
     IEnumerator Move()
     {
         yield return new WaitForSeconds(time);
-        Instantiate(this, new Vector2(transform.position.x + X, transform.position.y + Y), Quaternion.identity);
+        var newObject = Instantiate(this, new Vector2(transform.position.x + X, transform.position.y + Y), Quaternion.identity);
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Cover"))
+        {
+            if (newObject.GetComponent<BoxCollider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
+            {
+                Debug.Log(obj.name);
+
+                Destroy(newObject);
+                StopCoroutine(Move());
+                break;
+            }
+
+        }
+
     }
 
 }

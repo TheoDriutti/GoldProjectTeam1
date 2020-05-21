@@ -38,17 +38,18 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            listeObjets = new List<GameObject>();
-            GetObjets(4);
-            DonneItems();
         }
     }
 
     void LaunchBulletTime()
     {
-        timeLancementBT = Time.time;
-        gameState = GameState.BULLETTIME;
-        Time.timeScale = defaultTimeScale * coeffBulletTime;
+        //timeLancementBT = Time.time;
+        //gameState = GameState.BULLETTIME;
+        //Time.timeScale = defaultTimeScale * coeffBulletTime;
+
+        listeObjets = new List<GameObject>();
+        GetObjets();
+        DonneItems();
     }
 
     void DonneItems()
@@ -59,19 +60,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GetObjets(int nbItems)
+    void GetObjets()
     {
-        List<int> alreadyPicked = new List<int>();
-        for (int i = 0; i < nbItems; i++)
+        for (int i = 0; i < objets.transform.childCount; i++)
         {
-            int numeroItem = Random.Range(0, objets.transform.childCount);
-            while (alreadyPicked.Contains(numeroItem))
-            {
-                numeroItem = Random.Range(0, objets.transform.childCount);
-            }
-            alreadyPicked.Add(numeroItem);
-
-            Transform child = objets.transform.GetChild(numeroItem);
+            Transform child = objets.transform.GetChild(i);
             listeObjets.Add(child.gameObject);
         }
     }
