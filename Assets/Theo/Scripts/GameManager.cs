@@ -7,50 +7,28 @@ public class GameManager : MonoBehaviour
 {
 
     public GameObject objets;
-    public BallController ball;
     public Inventory inventory;
-
-    public float dureeBulletTime;
-    public float coeffBulletTime;
 
     List<GameObject> listeObjets;
 
-    enum GameState { BULLETTIME, GAME };
-    GameState gameState;
+    //enum GameState { BULLETTIME, GAME };
+    //GameState gameState;
 
-    float defaultTimeScale;
-    float timeLancementBT;
-    float defaultBallSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultTimeScale = Time.timeScale;
         LaunchBulletTime();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BulletTimeFinished())
-        {
-            gameState = GameState.GAME;
-            //ball.maxFallSpeed = defaultBallSpeed;
-            Time.timeScale = defaultTimeScale;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-        }
     }
 
     void LaunchBulletTime()
     {
-        timeLancementBT = Time.time;
-        gameState = GameState.BULLETTIME;
-        Time.timeScale = defaultTimeScale * coeffBulletTime;
-        //defaultBallSpeed = ball.maxFallSpeed;
-        //ball.maxFallSpeed *= coeffBulletTime;
+        Time.timeScale = 0;
 
         listeObjets = new List<GameObject>();
         GetObjets();
@@ -74,9 +52,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    bool BulletTimeFinished()
+    //bool BulletTimeFinished()
+    //{
+    //    return Time.time > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
+    //    //return (Time.time / coeffBulletTime) > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
+    //}
+
+    public void EndPrep()
     {
-        return (Time.time / coeffBulletTime) > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
-        //return Time.time > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
+        Time.timeScale = 1;
+        inventory.gameObject.SetActive(false);
     }
 }
