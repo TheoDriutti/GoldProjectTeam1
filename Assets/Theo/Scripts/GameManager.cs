@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
 
     public GameObject objets;
     public Inventory inventory;
+    public GameObject endgameUI;
+    public GameObject loseUI;
 
+    int levelNumber;
     List<GameObject> listeObjets;
-
-    //enum GameState { BULLETTIME, GAME };
-    //GameState gameState;
-
 
     // Start is called before the first frame update
     void Start()
     {
+        levelNumber = SceneManager.GetActiveScene().buildIndex;
         LaunchBulletTime();
     }
 
@@ -52,11 +54,39 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //bool BulletTimeFinished()
-    //{
-    //    return Time.time > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
-    //    //return (Time.time / coeffBulletTime) > timeLancementBT + dureeBulletTime && gameState == GameState.BULLETTIME;
-    //}
+    public void Lose()
+    {
+        loseUI.SetActive(true);
+    }
+
+    public void WinLevel()
+    {
+        Time.timeScale = 0;
+        if (levelNumber > PlayerPrefs.GetInt("LevelPassed"))
+        {
+            PlayerPrefs.SetInt("LevelPassed", levelNumber);
+        }
+        endgameUI.gameObject.SetActive(true);
+    }
+
+    public void GoNextLevel()
+    {
+        if (levelNumber < 23)
+        {
+            Debug.Log(levelNumber);
+            SceneManager.LoadScene(levelNumber + 1);
+        }
+    }
+
+    public void Reload()
+    {
+        SceneManager.LoadScene(levelNumber);
+    }
+
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 
     public void EndPrep()
     {

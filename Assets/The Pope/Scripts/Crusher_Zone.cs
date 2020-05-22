@@ -14,8 +14,8 @@ public class Crusher_Zone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if(collision.name == "Player")
+
+        if (collision.tag == "Ball")
         {
             Player = collision.gameObject;
             TargetAcquired = true;
@@ -26,7 +26,7 @@ public class Crusher_Zone : MonoBehaviour
     {
         if (Left && Right)
         {
-            Player.SetActive(false);
+            Player.GetComponent<BallController>().Lose();
         }
     }
 }

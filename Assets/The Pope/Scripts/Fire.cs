@@ -12,7 +12,7 @@ public class Fire : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<BallController>().Lose();
         }
     }
 
@@ -33,9 +33,7 @@ public class Fire : MonoBehaviour
                 StopCoroutine(Move());
                 break;
             }
-
         }
-
     }
 
 }

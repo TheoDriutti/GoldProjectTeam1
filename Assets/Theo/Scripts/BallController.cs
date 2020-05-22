@@ -5,7 +5,6 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float maxFallSpeed = 5f;
-
     [HideInInspector] public bool isBoosting = false;
     [HideInInspector] public float boostCD = 0f;
     [HideInInspector] public float boostCoeff;
@@ -14,6 +13,7 @@ public class BallController : MonoBehaviour
     [HideInInspector] public float slowCD = 0f;
     [HideInInspector] public float slowCoeff;
 
+    GameManager gameManager;
     bool hittingCrusherLeft = false;
     bool hittingCrusherRight = false;
     Rigidbody2D rb;
@@ -21,26 +21,25 @@ public class BallController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isBoosting)
-        {
-            boostCD -= Time.deltaTime;
-        }
-        if (isSlowing)
-        {
-            slowCD -= Time.deltaTime;
-        }
+        ApplySpeedEffect();
         UpdateBoost();
         UpdateSlow();
 
         if (Mathf.Abs(rb.velocity.y) > maxFallSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxFallSpeed;
+        }
+
+        if (transform.position.y < -6)
+        {
+            gameManager.WinLevel();
         }
     }
 
@@ -62,6 +61,24 @@ public class BallController : MonoBehaviour
             slowCD = 0f;
             maxFallSpeed /= slowCoeff;
         }
+    }
+
+    void ApplySpeedEffect()
+    {
+        if (isBoosting)
+        {
+            boostCD -= Time.deltaTime;
+        }
+        if (isSlowing)
+        {
+            slowCD -= Time.deltaTime;
+        }
+    }
+
+    public void Lose()
+    {
+        gameManager.Lose();
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D col)
