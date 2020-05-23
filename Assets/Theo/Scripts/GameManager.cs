@@ -13,9 +13,14 @@ public class GameManager : MonoBehaviour
     public Inventory inventory;
     public GameObject endgameUI;
     public GameObject loseUI;
+    public GameObject pauseMenu;
+    public GameObject btnPause;
 
     int levelNumber;
     List<GameObject> listeObjets;
+
+    enum GameState { PREP, GAME };
+    GameState gState;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +37,7 @@ public class GameManager : MonoBehaviour
     void LaunchBulletTime()
     {
         Time.timeScale = 0;
-
+        gState = GameState.PREP;
         listeObjets = new List<GameObject>();
         GetObjets();
         DonneItems();
@@ -74,7 +79,6 @@ public class GameManager : MonoBehaviour
     {
         if (levelNumber < 23)
         {
-            Debug.Log(levelNumber);
             SceneManager.LoadScene(levelNumber + 1);
         }
     }
@@ -92,6 +96,24 @@ public class GameManager : MonoBehaviour
     public void EndPrep()
     {
         Time.timeScale = 1;
+        gState = GameState.GAME;
         inventory.gameObject.SetActive(false);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        btnPause.SetActive(false);
+    }
+
+    public void Resume()
+    {
+        if (gState == GameState.GAME)
+        {
+            Time.timeScale = 1;
+        }
+        pauseMenu.SetActive(false);
+        btnPause.SetActive(true);
     }
 }

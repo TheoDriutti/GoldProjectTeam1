@@ -29,7 +29,6 @@ public class LevelClass : MonoBehaviour
 
         if (namescene <= PlayerPrefs.GetInt("LevelPassed"))
         {
-            Debug.Log(namescene);
             LevelState = State.Finished;
         }
         else if (namescene == PlayerPrefs.GetInt("LevelPassed") + 1)

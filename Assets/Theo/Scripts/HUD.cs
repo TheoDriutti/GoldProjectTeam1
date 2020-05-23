@@ -39,20 +39,23 @@ public class HUD : MonoBehaviour
 
     private void InventoryScript_ItemRemoved(object sender, InventoryEventArgs e)
     {
-        //Transform inventoryPanel = Inventory.gameObject.transform;
-        //foreach (Transform slot in inventoryPanel)
-        //{
-        //    Transform imageTransform = slot.GetChild(0);
-        //    Image image = imageTransform.GetComponent<Image>();
-        //    ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
+        Transform inventoryPanel = Inventory.gameObject.transform;
+        foreach (Transform slot in inventoryPanel)
+        {
+            Transform imageTransform = slot.GetChild(0);
+            Image image = imageTransform.GetComponent<Image>();
+            ItemDragHandler itemDragHandler = imageTransform.GetComponent<ItemDragHandler>();
 
-        //    if (itemDragHandler.Item != null)
-        //    {
-        //        if (itemDragHandler.Item.Equals(e.Item))
-        //        {
-        //            itemDragHandler.Item = null;
-        //        }
-        //    }
-        //}
+            if (itemDragHandler.Item != null)
+            {
+                if (itemDragHandler.Item.Equals(e.Item))
+                {
+                    image.enabled = false;
+                    image.sprite = null;
+                    itemDragHandler.Item = null;
+                    break;
+                }
+            }
+        }
     }
 }
