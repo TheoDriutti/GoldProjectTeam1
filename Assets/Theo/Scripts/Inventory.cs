@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour
     {
         if (items.Contains(item))
         {
-            //items.Remove(item);
+            items.Remove(item);
             item.OnDrop();
             if (ItemRemoved != null)
             {
