@@ -8,6 +8,7 @@ public class CrusherH : MonoBehaviour
     public GameObject Left;
     public GameObject Right;
     public float CrusherForce;
+    private float timeBfrDie=.35f;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +28,19 @@ public class CrusherH : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+     
+            if (collision.gameObject.tag == "Crusher")
+            {
+                Debug.Log("ok");
+                CrusherForce /= 2;
+                timeBfrDie = 10;
+            }
+
         if (collision.gameObject.tag == "Ball")
         {
             LockOn = true;
+            Destroy(collision.gameObject, timeBfrDie);
+
         }
     }
 
