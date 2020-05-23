@@ -27,6 +27,10 @@ public class MainMenu : MonoBehaviour
 
         UpdateBtnDisplay();
         //Debug.Log(PlayerPrefs.GetInt("LevelPassed"));
+
+       var pp=PlayerPrefs.GetInt("LevelPassed");
+        pp = 0;
+        PlayerPrefs.SetInt("LevelPassed",pp);
     }
 
     void UpdateBtnDisplay()

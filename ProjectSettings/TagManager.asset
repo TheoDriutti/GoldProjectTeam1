@@ -13,6 +13,7 @@ TagManager:
   - Cover
   - Left
   - Right
+  - Crusher
   layers:
   - Default
   - TransparentFX
