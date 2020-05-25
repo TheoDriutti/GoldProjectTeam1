@@ -10,7 +10,8 @@ public class Obstacles : MonoBehaviour
     public GameObject bullet;
     public float cooldownGun;
     public float baseCooldown;
-    public int bulletStrength;
+    public int bulletStrengthX;
+    public int bulletStrengthY;
     public float FireX;
     public float FireY;
     public float Firetime;
@@ -32,7 +33,7 @@ public class Obstacles : MonoBehaviour
 
         if (nameId == "Bullet")
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletStrength, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletStrengthX, bulletStrengthY));
         }
     }
 
