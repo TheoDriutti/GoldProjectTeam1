@@ -85,7 +85,10 @@ public class Obstacles : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (nameId == "Fire" && collision.gameObject.GetComponent<SlowCtrl>())
+        {
+            Firetime /= 2;
+        }
         if (nameId == "Enlarge")
         {
             PlayerTestHugo.instance.Enlarging(EnlargeTime, EnlargeForce);
