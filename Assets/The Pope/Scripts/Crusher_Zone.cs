@@ -26,6 +26,7 @@ public class Crusher_Zone : MonoBehaviour
     {
         if (Left && Right)
         {
+            Debug.Log("caught");
             Player.GetComponent<BallController>().Lose();
         }
     }

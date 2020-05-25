@@ -75,10 +75,17 @@ public class BallController : MonoBehaviour
         }
     }
 
-    public void Lose()
+    public void Lose(string str = "")
     {
         gameManager.Lose();
-        Destroy(gameObject);
+        if (str == "Crusher")
+        {
+            Destroy(gameObject, .35f);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
