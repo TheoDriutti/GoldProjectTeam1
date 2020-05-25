@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6426084328964671529}
   - component: {fileID: 6426084328964671528}
   - component: {fileID: -9059823815270266041}
-  m_Layer: 0
-  m_Name: BulletLeft
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: BulletL
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   cooldownGun: 0
   baseCooldown: 0
-  bulletStrengthX: -1
+  bulletStrengthX: -50
   bulletStrengthY: 0
   FireX: 0
   FireY: 0

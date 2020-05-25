@@ -62,18 +62,16 @@ public class Obstacles : MonoBehaviour
     {
         if (nameId == "Bullet")
         {
-
-            if (collision.gameObject.tag == "Cover")
-            {
-                Debug.Log("cover");
-                GetComponent<Rigidbody2D>().gravityScale = 1;
-                Destroy(gameObject, 1.5f);
-            }
             if (collision.gameObject.tag == "Ball")
             {
                 Destroy(gameObject, 0.01f);
                 collision.gameObject.GetComponent<BallController>().Lose();
             }
+            if (collision.gameObject.tag != "Ball")
+            {
+                Destroy(gameObject);
+            }
+            
         }
 
     }
