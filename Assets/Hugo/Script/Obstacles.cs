@@ -10,7 +10,8 @@ public class Obstacles : MonoBehaviour
     public GameObject bullet;
     public float cooldownGun;
     public float baseCooldown;
-    public int bulletStrength;
+    public int bulletStrengthX;
+    public int bulletStrengthY;
     public float FireX;
     public float FireY;
     public float Firetime;
@@ -32,7 +33,7 @@ public class Obstacles : MonoBehaviour
 
         if (nameId == "Bullet")
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletStrength, 0));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(bulletStrengthX, bulletStrengthY));
         }
     }
 
@@ -61,18 +62,16 @@ public class Obstacles : MonoBehaviour
     {
         if (nameId == "Bullet")
         {
-
-            if (collision.gameObject.tag == "Cover")
-            {
-                Debug.Log("cover");
-                GetComponent<Rigidbody2D>().gravityScale = 1;
-                Destroy(gameObject, 1.5f);
-            }
             if (collision.gameObject.tag == "Ball")
             {
                 Destroy(gameObject, 0.01f);
                 collision.gameObject.GetComponent<BallController>().Lose();
             }
+            if (collision.gameObject.tag != "Ball")
+            {
+                Destroy(gameObject);
+            }
+            
         }
 
     }
@@ -84,7 +83,10 @@ public class Obstacles : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (nameId == "Fire" && collision.gameObject.GetComponent<SlowCtrl>())
+        {
+            Firetime /= 2;
+        }
         if (nameId == "Enlarge")
         {
             PlayerTestHugo.instance.Enlarging(EnlargeTime, EnlargeForce);
