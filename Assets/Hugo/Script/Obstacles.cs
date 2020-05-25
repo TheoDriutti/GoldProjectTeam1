@@ -16,11 +16,11 @@ public class Obstacles : MonoBehaviour
     public float Firetime;
     public float EnlargeTime;
     public float EnlargeForce;
-    
+
     public float AccelForce;
     public float AccelTime;
     public float speedRotate;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,9 +53,9 @@ public class Obstacles : MonoBehaviour
                 cooldownGun = baseCooldown;
             }
         }
-        
+
     }
-    
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -68,9 +68,10 @@ public class Obstacles : MonoBehaviour
                 GetComponent<Rigidbody2D>().gravityScale = 1;
                 Destroy(gameObject, 1.5f);
             }
-            else
+            if (collision.gameObject.tag == "Ball")
             {
                 Destroy(gameObject, 0.01f);
+                collision.gameObject.GetComponent<BallController>().Lose();
             }
         }
 
@@ -83,7 +84,7 @@ public class Obstacles : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (nameId == "Enlarge")
         {
             PlayerTestHugo.instance.Enlarging(EnlargeTime, EnlargeForce);
