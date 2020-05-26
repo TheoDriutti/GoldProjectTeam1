@@ -100,7 +100,7 @@ MonoBehaviour:
   bullet: {fileID: 0}
   cooldownGun: 0
   baseCooldown: 0
-  bulletStrengthX: -50
+  bulletStrengthX: -150
   bulletStrengthY: 0
   FireX: 0
   FireY: 0
