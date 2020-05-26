@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -514,6 +514,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &164102568
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031629, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8731663451315031631, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
+        type: 3}
+      propertyPath: m_Name
+      value: Global Volume
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02fe3d8759aad1144a1fa8ee00c5b46f, type: 3}
 --- !u!1 &176118692
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +740,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7dc4b9cd25c19914bbbfffc8d2a98e62, type: 2}
+  - {fileID: 2100000, guid: 7dd4c5dab77a2864b8614a50474c1464, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1205,6 +1274,7 @@ GameObject:
   - component: {fileID: 820681470}
   - component: {fileID: 820681469}
   - component: {fileID: 820681468}
+  - component: {fileID: 820681471}
   m_Layer: 0
   m_Name: Bumper (1)
   m_TagString: Untagged
@@ -1315,6 +1385,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &820681471
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820681466}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &825800590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,6 +2793,7 @@ GameObject:
   - component: {fileID: 1636454504}
   - component: {fileID: 1636454503}
   - component: {fileID: 1636454502}
+  - component: {fileID: 1636454505}
   m_Layer: 0
   m_Name: Bumper (2)
   m_TagString: Untagged
@@ -2817,6 +2904,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &1636454505
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636454500}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1649136319
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,6 +3321,7 @@ GameObject:
   - component: {fileID: 1728635074}
   - component: {fileID: 1728635073}
   - component: {fileID: 1728635072}
+  - component: {fileID: 1728635071}
   m_Layer: 0
   m_Name: 'Main Camera '
   m_TagString: MainCamera
@@ -3225,6 +3329,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1728635071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728635070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 1
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!81 &1728635072
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3743,7 +3878,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7dc4b9cd25c19914bbbfffc8d2a98e62, type: 2}
+  - {fileID: 2100000, guid: 7dd4c5dab77a2864b8614a50474c1464, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

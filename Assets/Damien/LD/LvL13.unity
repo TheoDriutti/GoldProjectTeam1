@@ -121,28 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &9814912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8731663451315031631, guid: 02fe3d8759aad1144a1fa8ee00c5b46f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8731663451307445711}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &9814915
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9814912}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: bb49c7dbf63565a4092e9af80edce268, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: bb49c7dbf63565a4092e9af80edce268, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &113829200
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +220,7 @@ GameObject:
   - component: {fileID: 213711145}
   - component: {fileID: 213711144}
   - component: {fileID: 213711143}
+  - component: {fileID: 213711146}
   m_Layer: 0
   m_Name: Bumper (1)
   m_TagString: Untagged
@@ -352,6 +331,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &213711146
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213711141}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &332206313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3296,7 @@ GameObject:
   - component: {fileID: 7196801500458346804}
   - component: {fileID: 7196801500458346829}
   - component: {fileID: 7196801500458346805}
+  - component: {fileID: 7196801500458346806}
   m_Layer: 0
   m_Name: Bumper
   m_TagString: Untagged
@@ -3423,6 +3419,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.01, y: 4.79}
   m_EdgeRadius: 0
+--- !u!111 &7196801500458346806
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7196801500458346801}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 8915c39b775f6454eb73c0932a761b12, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &7196801500458346829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3543,6 +3555,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Global Volume
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 618412566349155544, guid: 02fe3d8759aad1144a1fa8ee00c5b46f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02fe3d8759aad1144a1fa8ee00c5b46f, type: 3}
