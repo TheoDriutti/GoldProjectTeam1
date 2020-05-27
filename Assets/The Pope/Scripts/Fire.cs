@@ -12,21 +12,20 @@ public class Fire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.gameObject.tag == "Ball")
         {
             collision.gameObject.GetComponent<BallController>().Lose();
         }
         else
         {
-            if (collision.GetComponent<Push>() != null)
-            {
-                StopCoroutine(Move());
-            }
-            if (collision.GetComponent<SlowCtrl>() != null)
-            {
-                currentTime = 2 * time;
-            }
+            //if (collision.GetComponent<Push>() != null)
+            //{
+            //    StopCoroutine(Move());
+            //}
+            //if (collision.GetComponent<SlowCtrl>() != null)
+            //{
+            //    currentTime = 2 * time;
+            //}
         }
     }
 
@@ -42,13 +41,27 @@ public class Fire : MonoBehaviour
         var newObject = Instantiate(this, new Vector2(transform.position.x + X, transform.position.y + Y), Quaternion.identity);
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Cover"))
         {
-            if (newObject.GetComponent<BoxCollider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
+            if (newObject.GetComponent<Collider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
             {
                 Destroy(newObject);
                 StopCoroutine(Move());
                 break;
             }
         }
+        foreach (Push obj in FindObjectsOfType<Push>())
+        {
+            if (newObject.GetComponent<Collider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
+            {
+                Destroy(newObject);
+                StopCoroutine(Move());
+                break;
+            }
+        }
+        foreach (SlowCtrl obj in FindObjectsOfType<SlowCtrl>())
+        {
+            currentTime = 2 * time;
+        }
+
     }
 
 }
