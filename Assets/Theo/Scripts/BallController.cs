@@ -31,6 +31,10 @@ public class BallController : MonoBehaviour
         ApplySpeedEffect();
         UpdateBoost();
         UpdateSlow();
+        if (hittingCrusherLeft && hittingCrusherRight)
+        {
+            Lose("Crusher");
+        }
 
         if (Mathf.Abs(rb.velocity.y) > maxFallSpeed)
         {
