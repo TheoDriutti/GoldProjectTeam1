@@ -26,9 +26,14 @@ public class HUD : MonoBehaviour
 
             if (!image.enabled)
             {
-
+                if (e.smallUI)
+                {
+                    imageTransform.GetComponent<RectTransform>().sizeDelta *= 1.8f;
+                }
                 image.enabled = true;
+                image.preserveAspect = true;
                 image.sprite = e.Item.Image;
+                image.transform.rotation = Quaternion.Euler(image.transform.rotation.x, image.transform.rotation.y, e.rotZ);
 
                 itemDragHandler.Item = e.Item;
 

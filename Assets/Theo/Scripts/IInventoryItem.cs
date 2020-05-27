@@ -14,9 +14,13 @@ public interface IInventoryItem
 public class InventoryEventArgs : EventArgs
 {
     public IInventoryItem Item;
+    public float rotZ;
+    public bool smallUI;
 
-    public InventoryEventArgs(IInventoryItem item)
+    public InventoryEventArgs(IInventoryItem item, float rotation, bool isSmall)
     {
         Item = item;
+        rotZ = rotation;
+        smallUI = isSmall;
     }
 }

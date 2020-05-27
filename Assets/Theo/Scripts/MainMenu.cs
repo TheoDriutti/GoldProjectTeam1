@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
     public GameObject Levels1;
     public GameObject Levels2;
 
+    public Button switchTo2;
+    public Button switchTo1;
+
     public Sprite StLocked;
     public Sprite StFinish;
     public Sprite LvLocked;
@@ -24,13 +27,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         FillBtnList();
-
         UpdateBtnDisplay();
-        //Debug.Log(PlayerPrefs.GetInt("LevelPassed"));
-
-       var pp=PlayerPrefs.GetInt("LevelPassed");
-        pp = 0;
-        PlayerPrefs.SetInt("LevelPassed",pp);
     }
 
     void UpdateBtnDisplay()
@@ -50,6 +47,7 @@ public class MainMenu : MonoBehaviour
                     break;
 
                 case State.Finished:
+                    levelButton[i].transform.GetChild(0).GetComponent<Image>().enabled = true;
                     levelButton[i].transform.GetChild(0).GetComponent<Image>().sprite = StFinish;
                     levelButton[i].GetComponent<Image>().sprite = LvFinish;
                     break;
@@ -63,16 +61,30 @@ public class MainMenu : MonoBehaviour
         {
             levelButton.Add(child.gameObject);
         }
-        //foreach (Transform child in Levels2.transform)
-        //{
-        //    levelButton.Add(child.gameObject);
-        //}
+        foreach (Transform child in Levels2.transform)
+        {
+            levelButton.Add(child.gameObject);
+        }
     }
 
     public void GoToLevels()
     {
         mainCanvas.SetActive(false);
         levelsCanvas.SetActive(true);
+        Levels1.SetActive(true);
+        Levels2.SetActive(false);
+        switchTo1.gameObject.SetActive(false);
+        switchTo2.gameObject.SetActive(true);
+        UpdateBtnDisplay();
+    }
+
+    public void GoToLevels2()
+    {
+        Levels1.SetActive(false);
+        Levels2.SetActive(true);
+        switchTo1.gameObject.SetActive(true);
+        switchTo2.gameObject.SetActive(false);
+        UpdateBtnDisplay();
     }
 
     public void GoToMainMenu()

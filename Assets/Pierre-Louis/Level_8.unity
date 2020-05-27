@@ -409,8 +409,8 @@ MonoBehaviour:
   inventory: {fileID: 532780631}
   endgameUI: {fileID: 12183189}
   loseUI: {fileID: 1435653957}
-  pauseMenu: {fileID: 0}
-  btnPause: {fileID: 0}
+  pauseMenu: {fileID: 2109493258}
+  btnPause: {fileID: 674274461}
 --- !u!4 &71597570
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,6 +1229,12 @@ PrefabInstance:
 --- !u!224 &674274460 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5639107104194401900, guid: c020e498218bf4a4b94a961f4b3bf432,
+    type: 3}
+  m_PrefabInstance: {fileID: 674274459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &674274461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5639107104194401903, guid: c020e498218bf4a4b94a961f4b3bf432,
     type: 3}
   m_PrefabInstance: {fileID: 674274459}
   m_PrefabAsset: {fileID: 0}
@@ -3199,6 +3205,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 2077001116511411267, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001116511411267, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001116511411267, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001116895208018, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001116895208018, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001116895208018, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001116895208018, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2077001116895208019, guid: 6230b61711050d64a9710b8b8e9571e5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3208,6 +3249,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Reload
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001117249146114, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001117249146114, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001117249146114, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077001117249146114, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2077001117249146115, guid: 6230b61711050d64a9710b8b8e9571e5,
         type: 3}
@@ -3224,6 +3285,12 @@ PrefabInstance:
 --- !u!224 &2109493257 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2077001115356436758, guid: 6230b61711050d64a9710b8b8e9571e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2109493256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2109493258 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2077001115356436753, guid: 6230b61711050d64a9710b8b8e9571e5,
     type: 3}
   m_PrefabInstance: {fileID: 2109493256}
   m_PrefabAsset: {fileID: 0}

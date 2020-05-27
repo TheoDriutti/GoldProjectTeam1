@@ -13,13 +13,13 @@ public class Inventory : MonoBehaviour
 
     public event EventHandler<InventoryEventArgs> ItemRemoved;
 
-    public void AddItem(IInventoryItem item)
+    public void AddItem(IInventoryItem item, float rotZ, bool isSmall)
     {
         items.Add(item);
         item.OnPickUp();
         if (ItemAdded != null)
         {
-            ItemAdded(this, new InventoryEventArgs(item));
+            ItemAdded(this, new InventoryEventArgs(item, rotZ, isSmall));
         }
     }
 
@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
             item.OnDrop();
             if (ItemRemoved != null)
             {
-                ItemRemoved(this, new InventoryEventArgs(item));
+                ItemRemoved(this, new InventoryEventArgs(item, 0, false));
             }
         }
     }

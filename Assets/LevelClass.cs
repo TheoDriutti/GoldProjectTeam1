@@ -25,6 +25,7 @@ public class LevelClass : MonoBehaviour
     public static LevelClass instance;
     private void Awake()
     {
+        //Debug.Log("Awake");
         instance = this;
 
         if (namescene <= PlayerPrefs.GetInt("LevelPassed"))

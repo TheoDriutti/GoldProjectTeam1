@@ -34,7 +34,6 @@ public class CrusherH : MonoBehaviour
 
         if (collision.gameObject.tag == "Crusher")
         {
-            Debug.Log("ok");
             CrusherForce /= 2;
             timeBfrDie = 10;
         }
@@ -43,7 +42,6 @@ public class CrusherH : MonoBehaviour
         {
             LockOn = true;
             //Destroy(collision.gameObject, timeBfrDie);
-            Debug.Log("dead");
             ball.GetComponent<BallController>().Lose("Crusher");
         }
     }

@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject gobj in listeObjets)
         {
-            inventory.AddItem(gobj.GetComponent<IInventoryItem>());
+            inventory.AddItem(gobj.GetComponent<IInventoryItem>(), gobj.transform.rotation.eulerAngles.z, levelNumber < 13);
         }
     }
 
