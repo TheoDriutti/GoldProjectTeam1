@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Color : MonoBehaviour
+public class ColorX : MonoBehaviour
 {
     private void Start()
     {

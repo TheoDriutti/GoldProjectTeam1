@@ -101,7 +101,7 @@ MonoBehaviour:
   cooldownGun: 0
   baseCooldown: 0
   bulletStrengthX: 0
-  bulletStrengthY: -50
+  bulletStrengthY: -150
   FireX: 0
   FireY: 0
   Firetime: 0
