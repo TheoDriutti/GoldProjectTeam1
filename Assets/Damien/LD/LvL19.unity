@@ -542,6 +542,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2674207318103933066, guid: 2905ed3d62818834a9674fa046440445,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.177
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708462268989045054, guid: 2905ed3d62818834a9674fa046440445,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708462268989045054, guid: 2905ed3d62818834a9674fa046440445,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.59
+      objectReference: {fileID: 0}
     - target: {fileID: 4708462268989045055, guid: 2905ed3d62818834a9674fa046440445,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -606,6 +621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Crusher
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708462269808605489, guid: 2905ed3d62818834a9674fa046440445,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.029
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2905ed3d62818834a9674fa046440445, type: 3}
@@ -1767,6 +1787,9 @@ MonoBehaviour:
   loseUI: {fileID: 1531699685}
   pauseMenu: {fileID: 80039103}
   btnPause: {fileID: 658297125}
+  sliderMusic: {fileID: 0}
+  sliderSFX: {fileID: 0}
+  gState: 0
 --- !u!4 &1226525820
 Transform:
   m_ObjectHideFlags: 0
@@ -1779,7 +1802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260381238
 GameObject:
