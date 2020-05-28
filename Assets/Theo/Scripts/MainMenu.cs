@@ -24,11 +24,16 @@ public class MainMenu : MonoBehaviour
     public AudioSource menuMusic;
     public AudioSource sourceSFX;
 
+    public Slider sliderMusic;
+    public Slider sliderSFX;
+
     List<GameObject> levelButton = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
+        sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume");
+        sliderSFX.value = PlayerPrefs.GetFloat("SFXVolume");
         FillBtnList();
         UpdateBtnDisplay();
     }

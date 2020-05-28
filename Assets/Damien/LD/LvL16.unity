@@ -1047,6 +1047,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 2077001115356436753, guid: 6230b61711050d64a9710b8b8e9571e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2077001115356436758, guid: 6230b61711050d64a9710b8b8e9571e5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2987,6 +2992,9 @@ MonoBehaviour:
   loseUI: {fileID: 1245663726}
   pauseMenu: {fileID: 611845907}
   btnPause: {fileID: 1446388687}
+  sliderMusic: {fileID: 0}
+  sliderSFX: {fileID: 0}
+  gState: 0
 --- !u!4 &1900913517
 Transform:
   m_ObjectHideFlags: 0

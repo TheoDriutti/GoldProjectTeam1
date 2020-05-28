@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 434779492}
   - component: {fileID: 434779493}
   m_Layer: 5
-  m_Name: SliderMusic
+  m_Name: SliderSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2727,8 +2727,8 @@ MonoBehaviour:
   loseUI: {fileID: 501889411}
   pauseMenu: {fileID: 138042611}
   btnPause: {fileID: 320202989}
-  sliderMusic: {fileID: 0}
-  sliderSFX: {fileID: 0}
+  sliderMusic: {fileID: 80964646}
+  sliderSFX: {fileID: 434779493}
   gState: 0
 --- !u!4 &1256127492
 Transform:
