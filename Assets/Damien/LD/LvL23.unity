@@ -614,6 +614,7 @@ MonoBehaviour:
   loseUI: {fileID: 1490886894}
   pauseMenu: {fileID: 791288974}
   btnPause: {fileID: 1038820907}
+  lv20NextButton: {fileID: 1781296483}
   sliderMusic: {fileID: 700439348}
   sliderSFX: {fileID: 700439347}
   gState: 0
