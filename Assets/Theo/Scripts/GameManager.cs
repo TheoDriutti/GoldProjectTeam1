@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //music = GameObject.Find("Music").GetComponent<AudioSource>();
-        //sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume");
+        music = GameObject.Find("Music").GetComponent<AudioSource>();
+        sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume");
 
-        //sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
-        //sliderSFX.value = PlayerPrefs.GetFloat("SFXVolume");
+        sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
+        sliderSFX.value = PlayerPrefs.GetFloat("SFXVolume");
 
         levelNumber = SceneManager.GetActiveScene().buildIndex;
         LaunchBulletTime();
@@ -130,13 +130,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMusicVolume(float value)
     {
-        //music.volume = value;
-        //PlayerPrefs.SetFloat("MusicVolume", value);
+        music.volume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
     }
 
     public void UpdateSFXVolume(float value)
     {
-        //sfx.volume = value;
-        //PlayerPrefs.SetFloat("SFXVolume", value);
+        sfx.volume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
     }
 }
