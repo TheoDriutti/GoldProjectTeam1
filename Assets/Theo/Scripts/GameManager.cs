@@ -16,15 +16,26 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject btnPause;
 
+    public Slider sliderMusic;
+    public Slider sliderSFX;
+
     int levelNumber;
     List<GameObject> listeObjets;
+    AudioSource music;
+    AudioSource sfx;
 
-    enum GameState { PREP, GAME };
-    GameState gState;
+    public enum GameState { PREP, GAME };
+    [HideInInspector] public GameState gState;
 
     // Start is called before the first frame update
     void Start()
     {
+        music = GameObject.Find("Music").GetComponent<AudioSource>();
+        sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume");
+
+        //sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
+        sliderSFX.value = PlayerPrefs.GetFloat("SFXVolume");
+
         levelNumber = SceneManager.GetActiveScene().buildIndex;
         LaunchBulletTime();
     }
@@ -115,5 +126,17 @@ public class GameManager : MonoBehaviour
         }
         pauseMenu.SetActive(false);
         btnPause.SetActive(true);
+    }
+
+    public void UpdateMusicVolume(float value)
+    {
+        music.volume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    public void UpdateSFXVolume(float value)
+    {
+        sfx.volume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
     }
 }

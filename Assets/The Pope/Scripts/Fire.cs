@@ -8,7 +8,7 @@ public class Fire : MonoBehaviour
     public float Y;
     public float time;
 
-    float currentTime;
+    float speed = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,52 +16,54 @@ public class Fire : MonoBehaviour
         {
             collision.gameObject.GetComponent<BallController>().Lose();
         }
-        else
-        {
-            //if (collision.GetComponent<Push>() != null)
-            //{
-            //    StopCoroutine(Move());
-            //}
-            //if (collision.GetComponent<SlowCtrl>() != null)
-            //{
-            //    currentTime = 2 * time;
-            //}
-        }
     }
 
     private void Start()
     {
-        currentTime = time;
-        StartCoroutine(Move());
+        //currentTime = time;
     }
 
-    IEnumerator Move()
+    private void Update()
     {
-        yield return new WaitForSeconds(currentTime);
-        var newObject = Instantiate(this, new Vector2(transform.position.x + X, transform.position.y + Y), Quaternion.identity);
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Cover"))
+        if (FindObjectsOfType<GameManager>()[0].gState == GameManager.GameState.GAME)
         {
-            if (newObject.GetComponent<Collider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
-            {
-                Destroy(newObject);
-                StopCoroutine(Move());
-                break;
-            }
-        }
-        foreach (Push obj in FindObjectsOfType<Push>())
-        {
-            if (newObject.GetComponent<Collider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
-            {
-                Destroy(newObject);
-                StopCoroutine(Move());
-                break;
-            }
-        }
-        foreach (SlowCtrl obj in FindObjectsOfType<SlowCtrl>())
-        {
-            currentTime = 2 * time;
-        }
+            transform.position += new Vector3(speed * Time.deltaTime * Mathf.Abs(X) / X, 0, 0);
+            transform.Rotate(new Vector3(0, 0, 1));
 
+            if (Mathf.Abs(transform.position.x) > 3.5)
+            {
+                X = -X;
+            }
+        }
     }
+    //IEnumerator Move()
+    //{
+    //yield return new WaitForSeconds(currentTime);
+    //var newObject = Instantiate(this, new Vector2(transform.position.x + X, transform.position.y + Y), Quaternion.identity);
+
+    //foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Cover"))
+    //{
+    //    if (newObject.GetComponent<Collider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
+    //    {
+    //        Destroy(newObject);
+    //        StopCoroutine(Move());
+    //        break;
+    //    }
+    //}
+    //foreach (Push obj in FindObjectsOfType<Push>())
+    //{
+    //    if (newObject.GetComponent<Collider2D>().bounds.Intersects(obj.GetComponent<BoxCollider2D>().bounds))
+    //    {
+    //        Destroy(newObject);
+    //        StopCoroutine(Move());
+    //        break;
+    //    }
+    //}
+    //foreach (SlowCtrl obj in FindObjectsOfType<SlowCtrl>())
+    //{
+    //    currentTime = 2 * time;
+    //}
+
+    //}
 
 }

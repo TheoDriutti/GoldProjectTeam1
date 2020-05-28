@@ -21,6 +21,9 @@ public class MainMenu : MonoBehaviour
     public Sprite LvUnLocked;
     public Sprite LvFinish;
 
+    public AudioSource menuMusic;
+    public AudioSource sourceSFX;
+
     List<GameObject> levelButton = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -53,6 +56,18 @@ public class MainMenu : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void UpdateMusicVolume(float value)
+    {
+        menuMusic.volume = value;
+        PlayerPrefs.SetFloat("MusicVolume", value);
+    }
+
+    public void UpdateSFXVolume(float value)
+    {
+        sourceSFX.volume = value;
+        PlayerPrefs.SetFloat("SFXVolume", value);
     }
 
     void FillBtnList()
