@@ -31,10 +31,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         music = GameObject.Find("Music").GetComponent<AudioSource>();
-        sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume");
+        //sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume");
 
         //sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
-        sliderSFX.value = PlayerPrefs.GetFloat("SFXVolume");
+        //sliderSFX.value = PlayerPrefs.GetFloat("SFXVolume");
 
         levelNumber = SceneManager.GetActiveScene().buildIndex;
         LaunchBulletTime();
