@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject btnPause;
 
+    public Button lv20NextButton;
     public Slider sliderMusic;
     public Slider sliderSFX;
 
@@ -84,6 +85,11 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("LevelPassed", levelNumber);
         }
         endgameUI.gameObject.SetActive(true);
+
+        if (levelNumber == 20)
+        {
+            lv20NextButton.enabled = false;
+        }
     }
 
     public void GoNextLevel()

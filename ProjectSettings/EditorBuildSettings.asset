@@ -65,13 +65,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Damien/LD/LvL19.unity
     guid: 346c11c680154a24b909babf655cb07a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Damien/LD/LvL20.unity
     guid: 57a5ea5fb99c5cc4b9673d038c2f6109
-  - enabled: 1
+  - enabled: 0
     path: Assets/Damien/LD/LvL21.unity
     guid: 4d3432aa419f08a47af36791040a5bbe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Damien/LD/LvL22.unity
     guid: 74c32d7d0cd4bb949b06c59cf3435d59
   - enabled: 1
