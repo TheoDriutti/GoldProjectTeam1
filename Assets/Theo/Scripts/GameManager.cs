@@ -130,13 +130,13 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMusicVolume(float value)
     {
-        music.volume = value;
-        PlayerPrefs.SetFloat("MusicVolume", value);
+        //music.volume = value;
+        //PlayerPrefs.SetFloat("MusicVolume", value);
     }
 
     public void UpdateSFXVolume(float value)
     {
-        sfx.volume = value;
-        PlayerPrefs.SetFloat("SFXVolume", value);
+        //sfx.volume = value;
+        //PlayerPrefs.SetFloat("SFXVolume", value);
     }
 }
