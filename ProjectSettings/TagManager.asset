@@ -15,6 +15,7 @@ TagManager:
   - Right
   - Crusher
   - Bullet
+  - SFX
   layers:
   - Default
   - TransparentFX

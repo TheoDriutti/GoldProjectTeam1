@@ -8,9 +8,13 @@ public class Bumper : InventoryItemBase
     {
         if (collision.gameObject.tag == "Ball")
         {
+            
             gameObject.GetComponent<Animation>().Play();
+            FindObjectOfType<AudioManager>().Bounce();
+
         }
-        
+
+
     }
 
     public override string Name

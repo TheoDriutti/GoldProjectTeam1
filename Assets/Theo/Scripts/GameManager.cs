@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-//using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -73,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        FindObjectOfType<AudioManager>().Loose();
         loseUI.SetActive(true);
     }
 
@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         if (levelNumber > PlayerPrefs.GetInt("LevelPassed"))
         {
+
             PlayerPrefs.SetInt("LevelPassed", levelNumber);
         }
         endgameUI.gameObject.SetActive(true);
@@ -90,22 +91,26 @@ public class GameManager : MonoBehaviour
     {
         if (levelNumber < 23)
         {
+            FindObjectOfType<AudioManager>().ClickButton();
             SceneManager.LoadScene(levelNumber + 1);
         }
     }
 
     public void Reload()
     {
+        FindObjectOfType<AudioManager>().ClickButton();
         SceneManager.LoadScene(levelNumber);
     }
 
     public void GoMainMenu()
     {
+        FindObjectOfType<AudioManager>().ClickButton();
         SceneManager.LoadScene(0);
     }
 
     public void EndPrep()
     {
+        FindObjectOfType<AudioManager>().ClickButton();
         Time.timeScale = 1;
         gState = GameState.GAME;
         inventory.gameObject.SetActive(false);
@@ -113,6 +118,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        FindObjectOfType<AudioManager>().ClickButton();
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         btnPause.SetActive(false);
@@ -124,6 +130,8 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+
+        FindObjectOfType<AudioManager>().ClickButton();
         pauseMenu.SetActive(false);
         btnPause.SetActive(true);
     }

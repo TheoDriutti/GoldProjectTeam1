@@ -17,6 +17,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        FindObjectOfType<AudioManager>().PickItemInv();
         dropHandler.Item = Item;
     }
 

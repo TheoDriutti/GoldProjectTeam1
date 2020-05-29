@@ -8,7 +8,7 @@ public class Fire : MonoBehaviour
     public float Y;
     public float time;
 
-    float speed = .7f;
+    public float speed = .7f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

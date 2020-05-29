@@ -118,8 +118,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: EndPrep
+      - m_Target: {fileID: 2019954148868283585, guid: ace1e6b00b588064dbf1562a42e6ef50,
+          type: 3}
+        m_MethodName: ClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

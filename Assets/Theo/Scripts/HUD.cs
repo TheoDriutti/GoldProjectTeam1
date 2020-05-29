@@ -55,6 +55,7 @@ public class HUD : MonoBehaviour
             {
                 if (itemDragHandler.Item.Equals(e.Item))
                 {
+                    FindObjectOfType<AudioManager>().PickItemInv();
                     image.enabled = false;
                     image.sprite = null;
                     itemDragHandler.Item = null;
