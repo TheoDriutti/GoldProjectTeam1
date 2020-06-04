@@ -15,17 +15,16 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        audio=GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
+        audio = GameObject.FindWithTag("SFX").GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        
+
     }
 
     public void ClickButton()
     {
-        Debug.Log("azerty");
         audio.PlayOneShot(button);
     }
 

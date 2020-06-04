@@ -18,14 +18,16 @@ public class InventoryItemBase : MonoBehaviour, IInventoryItem
         }
     }
 
+    GameObject IInventoryItem.gameObject { get; set; }
+
     public virtual void OnPickUp()
     {
     }
 
     public virtual void OnDrop()
     {
-        Vector3 DropPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var newObj = Instantiate(gameObject, new Vector3(DropPos.x, DropPos.y, 0), transform.rotation);
+        Vector3 dropPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var newObj = Instantiate(gameObject, new Vector3(dropPos.x, dropPos.y, 0), transform.rotation);
         newObj.transform.parent = transform.parent;
     }
 
