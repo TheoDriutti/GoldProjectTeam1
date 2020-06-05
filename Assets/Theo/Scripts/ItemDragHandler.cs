@@ -29,7 +29,7 @@ public class ItemDragHandler : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         placeholder = Instantiate(Item.gameObject, new Vector3(dropPos.x, dropPos.y, 10), Item.gameObject.transform.rotation, gmg.objets.transform);
 
         Color tmp = placeholder.GetComponent<SpriteRenderer>().color;
-        tmp.a = 100f;
+        tmp.a = .5f;
         placeholder.GetComponent<SpriteRenderer>().color = tmp;
 
         FindObjectOfType<AudioManager>().PickItemInv();
