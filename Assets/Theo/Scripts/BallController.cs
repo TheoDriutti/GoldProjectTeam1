@@ -18,6 +18,8 @@ public class BallController : MonoBehaviour
     bool hittingCrusherRight = false;
     Rigidbody2D rb;
 
+    public int counter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +96,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        counter++;
         if (col.gameObject.tag == "Left")
         {
             hittingCrusherLeft = true;

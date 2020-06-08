@@ -82,10 +82,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         if (levelNumber > PlayerPrefs.GetInt("LevelPassed"))
         {
-
             PlayerPrefs.SetInt("LevelPassed", levelNumber);
         }
         endgameUI.gameObject.SetActive(true);
+        GameObject nbr = GameObject.Find("NumberRebounds");
+        nbr.transform.GetChild(0).GetComponent<Text>().text = FindObjectOfType<BallController>().counter + " hit";
+        if (FindObjectOfType<BallController>().counter > 1)
+        {
+            nbr.transform.GetChild(0).GetComponent<Text>().text += "s";
+        }
     }
 
     public void GoNextLevel()
