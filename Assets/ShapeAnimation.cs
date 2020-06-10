@@ -14,7 +14,7 @@ public class ShapeAnimation : MonoBehaviour
         Image theImage = GetComponent<Image>();
         theImage.color = new Color(255, 255, 255, Random.Range(.03f, .25f));
         rotateSpeed = Random.Range(1, 5);
-        moveSpeed = Random.Range(50, 100);
+        moveSpeed = Random.Range(500, 1000);
         x = Random.Range(.3f, 1);
         transform.localScale = new Vector3(x, x, x);
         

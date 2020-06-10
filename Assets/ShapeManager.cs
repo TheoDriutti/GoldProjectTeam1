@@ -15,6 +15,7 @@ public class ShapeManager : MonoBehaviour
     void Start()
     {
         instantiateTransform = GameObject.FindGameObjectWithTag("Instantiate").GetComponent<Transform>();
+        save = instantiateTransform.transform.position;
         StartCoroutine(Spawning());
     }
 
@@ -24,6 +25,8 @@ public class ShapeManager : MonoBehaviour
         sVector.x = sVector.x + Random.Range(-550, 550);
         Debug.Log(sVector.x);
         sVector.y = 0;*/
+        instantiateTransform.transform.position = save;
+        //save = instantiateTransform.transform.position;
         //instantiateTransform.transform.position = new Vector3(0, 1080, 0);
         //save = instantiateTransform.transform.position;
         sVector = instantiateTransform.transform.position;
