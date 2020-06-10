@@ -16,6 +16,7 @@ TagManager:
   - Crusher
   - Bullet
   - SFX
+  - Instantiate
   layers:
   - Default
   - TransparentFX
